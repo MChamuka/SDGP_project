@@ -1,10 +1,10 @@
 import React from 'react'
 
-function signUp(){
+function profile(){
     return (
         <div>
             <h1>hello</h1>
         </div>
     )
 }
-export default signUp;
+export default profile;
