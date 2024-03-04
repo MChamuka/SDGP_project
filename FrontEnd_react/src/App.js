@@ -5,20 +5,25 @@ import SearchIcon from "./search.svg";
 import "./App.css";
 import { Link } from "react-router-dom";
 
+import axios from 'axios';
+
 import Spline from "@splinetool/react-spline";
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
+
+
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
-  const [initialData,setInitialData]=useState([{}])
+  const [initialData,setInitialData]=useState([{}]);
 
   useEffect(() => {
-    searchMovies("john wick");
+    searchMovies("spider man");
     fetch('/api').then(
       response=> response.json()
     ).then(data=>setInitialData(data))
   },[]);
+
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
@@ -35,9 +40,11 @@ const App = () => {
         <li><Link to ="/signUp">SignUp</Link></li>
       </ul>
       <h1>{initialData.title}</h1>
+      
       <div className="spline-container">
         <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/>
       </div>
+
       <div className="search">
         <input
           value={searchTerm}
