@@ -27,14 +27,24 @@ const App = () => {
   return (
     <div className="app">
       <ul>
-        <li><Link to ="/App">Main</Link></li>
-        <li><Link to ="/profile">profile</Link></li>
-        <li><Link to ="/location">location</Link></li>
-        <li><Link to ="/form">Form</Link></li>
-        <li><Link to ="/signUp">SignUp</Link></li>
+        <li>
+          <Link to="/App">Main</Link>
+        </li>
+        <li>
+          <Link to="/profile">profile</Link>
+        </li>
+        <li>
+          <Link to="/location">location</Link>
+        </li>
+        <li>
+          <Link to="/form">Form</Link>
+        </li>
+        <li>
+          <Link to="/signUp">SignUp</Link>
+        </li>
       </ul>
       <div className="spline-container">
-        <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/>
+        <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode" />
       </div>
       <div className="search">
         <input

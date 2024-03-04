@@ -1,0 +1,23 @@
+.profileBox {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../../public/Images/background\ image.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.UserProfileText {
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
+* {
+  margin: 0;
+}
