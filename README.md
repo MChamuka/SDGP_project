@@ -1,13 +1,2 @@
-# SDGP_project
-System Name - JetViaLense
-
-# Features
-- Search locations by movie
-- Crowd Sourced
-- Book flights for locations
-
-# Progress
-- Created the front-end for the homepage
-- API integration (OMDB)
-- Webscraping using Beautiful Soup (in progress)
-
+# Backend Code Run Instructuions
+run locations.js file by typing 'node locations.js' (go to localhost:8000/locations on browser) you will see the locations of pre entered movie
