@@ -5,7 +5,7 @@ import pymongo
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
-# Connect to MongoDB
+# connect to MongoDB
 uri = "mongodb+srv://danindu:gLe8lKyg5S0UNRP4@jetvialensedb.x7bdmb1.mongodb.net/?retryWrites=true&w=majority&appName=JetViaLenseDB"
 client = MongoClient(uri)
 db = client['film-data']
@@ -18,15 +18,13 @@ try:
 except Exception as e:
     print(e)
 
-# getting movie locations by passing id as argument from node
+# getting movie locations by passing id and title as arguments from node
 movieID = sys.argv[1]
-# movieID = "tt1670345"
+movieTitle = sys.argv[2]
 
 duplicationCount = collection.count_documents({"imdbID": movieID})
-print("Duplication count: ", duplicationCount)
 
 if(duplicationCount == 0):
-    #def predit():
 
         url = "https://www.imdb.com/title/"+movieID+"/locations/?ref_=tt_dt_loc"
 
@@ -48,24 +46,23 @@ if(duplicationCount == 0):
                 location = div_element.text.strip()  # Get the text content of the div and remove leading/trailing whitespace
                 locations.append(location)  # Append location to the list
 
-            # adding to mongodb
+            # adding to the mongodb (document)
             if(len(locations) == 0):
-                locations.append("No locations found for this movie")
+                locations.append("No locations found for this movie: click here to submit a location.")
+                result = collection.insert_one({
+                        "imdbID": movieID,
+                        "movieTitle": movieTitle,
+                        "locations": locations
+                    })
             else:
                 result = collection.insert_one({
                         "imdbID": movieID,
-                        "movieTitle": "TEST MOVIE TITLE",
+                        "movieTitle": movieTitle,
                         "locations": locations
-                    })
-            # print("data ID: ", result.inserted_id)
-            
+                    })           
 
             for data in locations:
                 print(data)
 
         else:
             print(f"Failed to load the locations. Status code: {response.status_code}")
-
-        #return {"location":response}
-
-#predit()
