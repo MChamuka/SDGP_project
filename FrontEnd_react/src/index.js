@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SignUp from './pages/signUp.js';
-import Location from './pages/Location.js';
+import Locations from './pages/Locations.js';
 import Form  from './pages/Form.js';
 import Profile from './pages/Profile.js';
 
@@ -30,10 +30,12 @@ import {
         element: <Profile /> ,
       },
       {
-        path: "location",
-        element: <Location /> ,
+        path: "locations",
+        element: <Locations /> ,
       },
   ]);
 
 ReactDOM.render( <RouterProvider router={router} />, document.getElementById('root'))
+
+
 
