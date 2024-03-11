@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./userInformation.css";
 
 export default function UserInformation() {
-  const [profileImage, setProfileImage] = useState("/Images/1.jpg"); // Initial profile image URL
+  const [profileImage, setProfileImage] = useState("/Images/1.jpg");
   const fileInputRef = useRef(null);
 
   const handleImageUpload = (event) => {
