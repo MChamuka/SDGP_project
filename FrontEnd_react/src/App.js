@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard";
 import SearchIcon from "./search.svg";
 import "./App.css";
 import { Link } from "react-router-dom";
+//
 
 import axios from 'axios';
 
@@ -69,6 +70,9 @@ const App = () => {
           <h2>No movies found, but here are a list of recommended movies</h2>
         </div>
       )}
+        
+      
+        
     </div>
   );
 };
