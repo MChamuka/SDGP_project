@@ -1,5 +1,5 @@
 import "./locations.css"
-import Nav from "../nav.js";
+// import Nav from "../nav.js";
 import { useEffect, useState } from "react";
 import EditSvg from "./edit.svg";
 
@@ -30,7 +30,7 @@ function Locations() {
       
     return (
         <div className='content'>
-            <Nav />
+            {/* <Navbar /> */}
             <div className="movieDetails">
                 <h1 id="movieTitle">{title}</h1>
                 <a href="">

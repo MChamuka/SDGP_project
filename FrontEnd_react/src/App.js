@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
+import Navbar from "./pages/navbar";
 import SearchIcon from "./search.svg";
+
 import "./App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -22,7 +24,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("john wick");
+    searchMovies("horror");
   }, []);
 
   // On movie selection
@@ -47,19 +49,29 @@ const App = () => {
       });
     window.location.href = "/locations";
   };
+  const myFunction = () =>{
+    var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+  }
+  
 
   return (  
     <div className="app">
+      <Navbar/>
       <h1>JetViaLense</h1>
-      <ul>
+      {/* <ul class="topnav" id="myTopnav">
         <li><Link to ="/App">Search</Link></li>
         <li><Link to ="/profile">Profile</Link></li>
         <li><Link to ="/locations">Locations</Link></li>
         <li><Link to ="/form">Submit</Link></li>
         <li><Link to ="/signUp">Login</Link></li>
-      </ul>
+      </ul> */}
       <div className="spline-container">
-        {/* <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/> */}
+        <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/>
       </div>
       <div className="search">
         <input
