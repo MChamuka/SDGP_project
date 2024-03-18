@@ -1,6 +1,7 @@
 import React from 'react';
 
 const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
+
   return (
     <div className="movie" key={imdbID}>
       <div>
@@ -8,7 +9,7 @@ const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
       </div>
 
       <div>
-        <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
+        <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={imdbID} title={Title}/>
       </div>
 
       <div>

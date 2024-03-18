@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-
 import MovieCard from "./MovieCard";
+import Navbar from "./pages/navbar";
 import SearchIcon from "./search.svg";
+
 import "./App.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
+
 
 import Spline from "@splinetool/react-spline";
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
@@ -14,35 +17,52 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [mlResponse, setMLResponse] = useState("nothing");
 
-  useEffect(() => {
-    searchMovies("john wick");
-  }, []);
-
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-
     setMovies(data.Search);
   };
-  return (
+
+  useEffect(() => {
+    searchMovies("horror");
+  }, []);
+
+  // On movie selection
+  const movieClick = (event) => {
+
+    //getting clicked componenet details
+    const clickedMovieID = event.target.getAttribute('alt');
+    const clickedMovieTitle = event.target.getAttribute('title');
+
+    const movieData = { 
+      ID: clickedMovieID,
+      Title: clickedMovieTitle
+    };
+    console.log(clickedMovieID);
+
+    axios.post("http://localhost:4000/locations", movieData)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    window.location.href = "/locations";
+  };
+  const myFunction = () =>{
+    var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+  }
+  
+
+  return (  
     <div className="app">
-      <ul>
-        <li>
-          <Link to="/App">Main</Link>
-        </li>
-        <li>
-          <Link to="/profile">profile</Link>
-        </li>
-        <li>
-          <Link to="/location">location</Link>
-        </li>
-        <li>
-          <Link to="/form">Form</Link>
-        </li>
-        <li>
-          <Link to="/signUp">SignUp</Link>
-        </li>
-      </ul>
+      <Navbar/>
+
       <div className="spline-container">
         <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode" />
       </div>
@@ -60,7 +80,7 @@ const App = () => {
       </div>
 
       {movies?.length > 0 ? (
-        <div className="container">
+        <div className="container"  onClick={movieClick}>
           {movies.map((movie) => (
             <MovieCard movie={movie} />
           ))}
@@ -71,6 +91,8 @@ const App = () => {
         </div>
       )}
     </div>
+    
   );
 };
+
 export default App;
