@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./userInformation.css";
+import { Link } from "react-router-dom";
 
 export default function UserInformation() {
   const [profileImage, setProfileImage] = useState("/Images/1.jpg");
