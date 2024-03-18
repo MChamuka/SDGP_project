@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+}
+
+.journalMainContainer {
+  background-image: url(../../../../../../public/Images/background\ image.jpg);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.journal-container {
+  font-family: sans-serif;
+  width: 65%;
+  height: 80vh;
+  margin: 30px 0;
+  margin-left: 10px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-color: black;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journal-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.description-textarea {
+  width: 95%;
+  height: 120px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.image-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #fff;
+  border: none;
+  padding: 4px;
+  border-radius: 25%;
+  cursor: pointer;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-button:hover {
+  background-color: #d50808;
+  color: #050606;
+}
+
+.image-input {
+  display: none;
+}
+
+.image-upload-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.image-upload-button:hover {
+  background-color: #0d3663;
+}
+
+.clear-all-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.clear-all-button:hover {
+  background-color: #7f0f1a;
+}
+
+.image-preview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.close-preview-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
