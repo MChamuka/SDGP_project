@@ -1,7 +1,7 @@
-// components/MovieForm.js
+// MovieForm.jsx
+
 import React, { useState } from 'react';
-import MovieInput from './MovieInput';
-import './MovieForm.css'; // Import CSS file for styling
+import './MovieForm.css';
 
 const MovieForm = () => {
   const [formData, setFormData] = useState({
@@ -21,38 +21,55 @@ const MovieForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle form submission here
-    console.log(formData);
+    console.log(formData); // You can handle form submission here
   };
 
   return (
-    <form className="movie-form" onSubmit={handleSubmit}>
-      <MovieInput
-        label="Movie Name"
-        name="movieName"
-        value={formData.movieName}
-        onChange={handleChange}
-      />
-      <MovieInput
-        label="Movie Scene"
-        name="movieScene"
-        value={formData.movieScene}
-        onChange={handleChange}
-      />
-      <MovieInput
-        label="Movie Location"
-        name="movieLocation"
-        value={formData.movieLocation}
-        onChange={handleChange}
-      />
-      <MovieInput
-        label="Movie Genre"
-        name="movieGenre"
-        value={formData.movieGenre}
-        onChange={handleChange}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="movie-form-container">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="movieName">Movie Name</label>
+          <input
+            type="text"
+            id="movieName"
+            name="movieName"
+            value={formData.movieName}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="movieScene">Movie Scene</label>
+          <input
+            type="text"
+            id="movieScene"
+            name="movieScene"
+            value={formData.movieScene}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="movieLocation">Movie Location</label>
+          <input
+            type="text"
+            id="movieLocation"
+            name="movieLocation"
+            value={formData.movieLocation}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="movieGenre">Movie Genre</label>
+          <input
+            type="text"
+            id="movieGenre"
+            name="movieGenre"
+            value={formData.movieGenre}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
