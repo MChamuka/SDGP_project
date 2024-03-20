@@ -24,9 +24,15 @@ const MovieForm = () => {
     console.log(formData); // You can handle form submission here
   };
 
+  const handleGoBack = () => {
+    // Define the logic to go back
+    console.log('Going back...');
+  };
+
   return (
     <div className='body'>
         <div className="movie-form-container">
+        <button className="back-button" onClick={handleGoBack}>Back</button>
           <form onSubmit={handleSubmit}>
             <h1>Data Gathering Form</h1>
             <div className="form-group">
