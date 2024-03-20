@@ -25,50 +25,57 @@ const MovieForm = () => {
   };
 
   return (
-    <div className="movie-form-container">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="movieName">Movie Name</label>
-          <input
-            type="text"
-            id="movieName"
-            name="movieName"
-            value={formData.movieName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="movieScene">Movie Scene</label>
-          <input
-            type="text"
-            id="movieScene"
-            name="movieScene"
-            value={formData.movieScene}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="movieLocation">Movie Location</label>
-          <input
-            type="text"
-            id="movieLocation"
-            name="movieLocation"
-            value={formData.movieLocation}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="movieGenre">Movie Genre</label>
-          <input
-            type="text"
-            id="movieGenre"
-            name="movieGenre"
-            value={formData.movieGenre}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+    <div className='body'>
+        <div className="movie-form-container">
+          <form onSubmit={handleSubmit}>
+            <h1>Data Gathering Form</h1>
+            <div className="form-group">
+              <label htmlFor="movieName">Movie Name</label>
+              <input
+                type="text"
+                id="movieName"
+                name="movieName"
+                value={formData.movieName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="movieScene">Movie Scene</label>
+              <input
+                type="text"
+                id="movieScene"
+                name="movieScene"
+                value={formData.movieScene}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="movieLocation">Movie Location</label>
+              <input
+                type="text"
+                id="movieLocation"
+                name="movieLocation"
+                value={formData.movieLocation}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="movieGenre">Movie Genre</label>
+              <input
+                type="text"
+                id="movieGenre"
+                name="movieGenre"
+                value={formData.movieGenre}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+      </div>
     </div>
   );
 };

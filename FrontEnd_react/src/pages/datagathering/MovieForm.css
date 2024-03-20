@@ -1,8 +1,33 @@
 /* MovieForm.css */
+.body{
+  font-family: 'Poppins', sans-serif;
+  background: url('P1.jpg') no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  min-height: 100vh;
+  background-size: cover;
+  
+}
 
 .movie-form-container {
   width: 400px;
+  background: transparent;
   margin: 0 auto;
+  border: 2px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0,0, 0, .2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.movie-form-container h1{
+  font-size: 36px;
+  text-align: center;
 }
 
 .form-group {
@@ -16,6 +41,7 @@ label {
 
 input {
   width: 100%;
+  background: transparent;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -23,7 +49,7 @@ input {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #3b1782;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -32,5 +58,5 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #230255;
 }
