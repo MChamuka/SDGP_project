@@ -10,13 +10,6 @@ import Profile from "./pages/UserProfilePage/Profile.js";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-
-import App from './App';
-import {
-    createBrowserRouter,
-    RouterProvider,
-  } from "react-router-dom";
-
   const router = createBrowserRouter([
     {
       path: "/",

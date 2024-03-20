@@ -63,9 +63,7 @@ const App = () => {
     <div className="app">
       <Navbar/>
 
-      <div className="spline-container">
-        <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode" />
-      </div>
+      <h1>JetViaLens</h1>
       <div className="search">
         <input
           value={searchTerm}
