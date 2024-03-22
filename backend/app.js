@@ -69,7 +69,10 @@ function getLocations () {
 
 app.get('/getUsers',(req,res)=>{
   UserModel.find()
-  .then(users=>res.json(users))
+  .then(users=>{res.json(users)
+    console.log(users)
+  })
+  
   .catch(err=>res.json(err))
 });
 
