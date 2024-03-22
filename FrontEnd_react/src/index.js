@@ -1,14 +1,16 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SignUp from './pages/signUp.js';
 import Locations from './pages/Locations.js';
 import Form  from './pages/Form.js';
-import Profile from "./pages/UserProfilePage/Profile.js";
+import Profile from './pages/Profile.js';
 
 
-import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from './App';
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";
 
   const router = createBrowserRouter([
     {
@@ -34,3 +36,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
   ]);
 
 ReactDOM.render( <RouterProvider router={router} />, document.getElementById('root'))
+
+
+
