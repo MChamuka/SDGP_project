@@ -104,12 +104,12 @@ function Locations() {
                                         <Marker position={geoCodes[index]}/>
                                         </GoogleMap>
                                     </div>                                   
-                                    {/* <div className="detail addScene1">
+                                    <div className="detail addScene1">
                                         <p>Add movie scene image here</p>
                                     </div>
                                     <div className="detail addScene2">
                                         <p>Add real scene image here</p>
-                                    </div> */}
+                                    </div>
                                     {visibility && (
                                         <div className="detail editLocation">
                                             <p>Edit Location</p>
