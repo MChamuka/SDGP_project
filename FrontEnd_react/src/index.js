@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SignUp from './pages/signUp.js';
 import Locations from './pages/Locations.js';
 import Form  from './pages/Form.js';
-import Profile from './pages/Profile.js';
+import Profile from './pages/UserProfilePage/Profile.js';
 
 
 import App from './App';
@@ -26,7 +26,7 @@ import {
         element: <Form /> ,
       },
       {
-        path: "profile",
+        path: "/profile",
         element: <Profile /> ,
       },
       {

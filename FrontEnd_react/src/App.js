@@ -9,13 +9,12 @@ import { Link } from "react-router-dom";
 
 
 // import Spline from "@splinetool/react-spline";
+
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
-const mlResponse = "hello";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
-  const [mlResponse, setMLResponse] = useState("nothing");
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
@@ -63,6 +62,7 @@ const App = () => {
     <div className="app">
       <Navbar/>
       <h1>JetViaLense</h1>
+
       {/* <ul class="topnav" id="myTopnav">
         <li><Link to ="/App">Search</Link></li>
         <li><Link to ="/profile">Profile</Link></li>
@@ -73,6 +73,7 @@ const App = () => {
       {/* <div className="spline-container">
         <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/>
       </div> */}
+
       <div className="search">
         <input
           value={searchTerm}

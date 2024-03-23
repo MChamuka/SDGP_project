@@ -103,6 +103,7 @@ function Locations() {
                                         <Marker position={geoCodes[index]}/>
                                         </GoogleMap>
                                     </div>                                   
+
                                     <div className="detail addScene1 scenes">
                                         <p>Add movie scene image here</p>
                                     </div>

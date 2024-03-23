@@ -11,9 +11,16 @@ export default function UserInformation() {
 
   const [users,setUsers] = useState([])
 
+  const openStreamlitApp = () => {
+    window.open('http://localhost:8501'); //streamlt URL
+  };
+
   useEffect(()=>{
     axios.get('http://localhost:4000/getUsers')
-    .then(users=> setUsers(users.data))
+    .then(users=> {setUsers(users.data[0])
+      
+      console.log(users.data[0].firstName)
+    })
     .catch(err=>console.log(err))
   },[])
 
@@ -29,34 +36,6 @@ export default function UserInformation() {
 
   return (
     <div className="mainBody">
-      <div className="w-100 vh-100d-flex justify-content-cter align-items-center">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>
-                Name
-              </th>
-              <th>
-                email
-              </th>
-              <th>
-                age
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              users.map(user=>{
-                <tr key={user.id}>
-                  <td> {user.name} </td>
-                  <td>{user.email}</td>
-                  <td>{user.age}</td>
-                </tr>
-              })
-            }
-          </tbody>
-        </table>
-      </div>
       <div className="userProfileContainer">
         <div className="userDetailsContainer">
           <div className="imageContainer">
@@ -71,12 +50,12 @@ export default function UserInformation() {
               style={{ display: "none" }}
             />
           </div>
-          <div className="userinfo">User' username</div>
-          <div className="userinfo">Users' email</div>
+          <div className="userinfo">{users.firstName}</div>
+          <div className="userinfo">{users.email}</div>
         </div>
         <div className="featureContainer">
           <div className="userProfilefeatures">
-            <button className="feature">Recommended Movies</button>
+            <button className="feature" onClick={openStreamlitApp}>Recommended Movies</button>
             <button className="feature">Data Gathering Form</button>
             <button className="feature">Journal</button>
             <button className="feature">Achievements</button>

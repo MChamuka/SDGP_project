@@ -1,10 +1,12 @@
-import React from 'react'
+// import React from "react";
+// import "./UserProfilePage/profile.css";
+// import UserInformation from "./UserProfilePage/UserProfileComponents/UserInformation/UserInformation";
 
-function profile(){
-    return (
-        <div>
-            <h1>hello</h1>
-        </div>
-    )
-}
-export default profile;
+// export default function Profile() {
+//   return (
+//     <div className="profileBox">
+//       <div className="UserProfileText">User-Profile Page</div>
+//       <UserInformation />
+//     </div>
+//   );
+// }
