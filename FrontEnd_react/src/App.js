@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import Navbar from "./pages/navbar";
 import SearchIcon from "./search.svg";
+import Main from "./Signup_sign in/Main";
+import Signup from "./Signup_sign in/Signup";
+import Login from "./Signup_sign in/Login"
 
 import "./App.css";
 import axios from "axios";
@@ -59,6 +62,13 @@ const App = () => {
   
 
   return (  
+    /*<Routes>
+			{user && <Route path="/" exact element={<Main />} />}
+			<Route path="/signup" exact element={<Signup />} />
+			<Route path="/login" exact element={<Login />} />
+			<Route path="/" element={<Navigate replace to="/login" />} />
+		</Routes>*/
+
     <div className="app">
       <Navbar/>
       <h1>JetViaLense</h1>
@@ -99,6 +109,8 @@ const App = () => {
         </div>
       )}
     </div>
+
+    
     
   );
 };
