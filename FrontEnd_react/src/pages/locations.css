@@ -44,17 +44,18 @@ div {
     flex-direction: row;
     padding-top: 2rem;
     text-align: center;
-    align-content: center;
+    align-items: center;
 }
 
 #editButton{
     width: 50px;
     background-color: #ffffff68;
+    border-radius: 5px;
 }
 
 #movieTitle {
     width:100%;
-    margin: 45px 90px;
+    margin: 80px 90px 45px 120px;
     /* margin-left: 90px; */
     /* margin-top: 45px; */
 }
@@ -132,6 +133,13 @@ h1.locationName{
     align-items: center;
     border-radius: 20px;
     margin: 1rem 0rem;
+}
+
+.scenes{
+    display: flex;
+    border: solid;
+    border-width: 1px;
+    align-items: center;
 }
 
 p{
