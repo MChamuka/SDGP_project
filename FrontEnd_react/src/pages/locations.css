@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..200;1,100..900&display=swap');
 
 * {
     margin-top: 0;
@@ -18,10 +18,12 @@ h2 {
 
 h1 {
     margin: 0rem 3rem 0rem 2rem;
+    width: 100%;
+
 }
 
 .location {
-    font-size: 2.2rem;
+    font-size: 1rem;
 }
 
 
@@ -34,35 +36,46 @@ div {
 }
 
 .movieDetails {
+    background-image: "url('./public/1.png')";
+    background-size: cover;
     display: flex;
+    width: 100%;
+    height: 50%;
     flex-direction: row;
-    gap: 0px;
-    margin-top: 2rem;
-    margin-left: 0px;
+    padding-top: 2rem;
+    text-align: center;
     align-items: center;
 }
 
+#editButton{
+    width: 50px;
+    background-color: #ffffff68;
+    border-radius: 5px;
+}
+
 #movieTitle {
-    width:60%;
-    margin: 45px 90px;
+    width:100%;
+    margin: 80px 90px 45px 120px;
     /* margin-left: 90px; */
     /* margin-top: 45px; */
 }
 
-#editButton {
-    height: 50px;
-    background-color: #dddddd85;
-    border-radius: 5px;
-}
-
 .locationList{
+    font-size: 1rem;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
+    margin-left: 32px;
+    padding: 1rem 0rem;
+    text-align: left;
 }
 
-.requests{
+.button-add{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 100%;
 }
+
 
 .content2{
     display: flex;
@@ -71,14 +84,12 @@ div {
     /* gap: 10rem; */
     color: #ffffff;
     margin-top: 0rem;
-    margin-left: 2rem;
 }
 
 .locations{
-    /* display: flex; */
-    width: 100%;
+    width: 98%;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .options{
@@ -89,6 +100,62 @@ div {
 
 .links{
     width: 100%;
+}
+
+.details-grid{
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+    margin: 2rem 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+h1.locationName{
+    width: 100%;
+    text-align: center;
+    margin-top: 77px;
+    margin-left: 0;
+}
+
+.span{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.detail{
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0rem 2rem; 
+    align-items: center;
+    border-radius: 20px;
+    margin: 1rem 0rem;
+}
+
+.scenes{
+    display: flex;
+    border: solid;
+    border-width: 1px;
+    align-items: center;
+}
+
+p{
+    grid-area: auto;
+    font-size: 1.5rem;
+}
+
+.map{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+}
+
+.map-container{
+    position: relative;
+    border-radius: 20px;
+    height: 50vh;
 }
 
 

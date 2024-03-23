@@ -5,7 +5,7 @@ const cors = require('cors');
 const { spawn, exec } = require('child_process');
 const mongoose = require('mongoose');
 const Location = require('./models/locations');
-const UserModel = require('./models/userprofile')
+const UserModel = require('./models/userprofile');
 const { get } = require('http');
 
 //creating express app
@@ -62,14 +62,17 @@ function getLocations () {
       })
       .catch((err) => {
         console.log(err);
-      });
+      });      
     res.status(200);
   });
 }
 
 app.get('/getUsers',(req,res)=>{
   UserModel.find()
-  .then(users=>res.json(users))
+  .then(users=>{res.json(users)
+    console.log(users)
+  })
+  
   .catch(err=>res.json(err))
 });
 

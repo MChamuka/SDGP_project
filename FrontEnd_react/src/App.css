@@ -43,9 +43,8 @@ a {
 }
 
 a:hover {
-  background-color: #ddd;
   border-radius: 2px;
-  color: black;
+  color: rgb(103, 103, 103);
 }
 
 ul{
