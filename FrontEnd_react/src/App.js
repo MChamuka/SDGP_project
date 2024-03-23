@@ -5,7 +5,7 @@ import SearchIcon from "./search.svg";
 
 import "./App.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 
 // import Spline from "@splinetool/react-spline";
