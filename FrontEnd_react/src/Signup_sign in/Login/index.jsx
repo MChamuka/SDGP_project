@@ -15,10 +15,18 @@ const Login = () => {
 		e.preventDefault();
 		try {
 			console.log(data)
-			const url = "http://localhost:8080/api/auth";
+			axios.post("http://localhost:4000/userData",data)
+			.then(response => {
+				console.log(response);
+			})
+			.catch(err=>{
+				console.log(err);
+			})
+			const url = "http://localhost:4000/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+			console.log(data)
+			window.location = "/profile";
 		} catch (error) {
 			if (
 				error.response &&
@@ -61,7 +69,7 @@ const Login = () => {
 					</form>
 				</div>
 				<div className={styles.right}>
-					<h1>New Here ?</h1>
+					<h1>New to JetVIaLense?</h1>
 					<Link to="/signup">
 						<button type="button" className={styles.white_btn}>
 							Sign Up

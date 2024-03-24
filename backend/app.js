@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 const Location = require('./models/locations');
 const UserModel = require('./models/userprofile');
 const CrowdData = require('./models/crowdData')
+require("dotenv").config();
+// const connection = require("./db");
+const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
 const { get } = require('http');
 const { log } = require('console');
 
@@ -14,8 +18,13 @@ const { log } = require('console');
 const app = express();
 
 // use methods
+app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors());
+
+// routes
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 // db connection
 const dbURI = 'mongodb+srv://danindu:gLe8lKyg5S0UNRP4@jetvialensedb.x7bdmb1.mongodb.net/film-data'
@@ -23,7 +32,6 @@ mongoose.connect(dbURI)
     .then(() => app.listen(4000))
     .then(() => console.log('connected'))
     .catch((err) => console.log(err));
-
     
 // get movie ids to the backend
 app.post('/locations', (req, res) => {
@@ -69,14 +77,26 @@ function getLocations () {
   });
 }
 
-app.get('/getUsers',(req,res)=>{
-  UserModel.find()
-  .then(users=>{res.json(users)
-    console.log(users)
+let userData = ''
+
+app.post('/userData',(req,res)=>{
+  data = req.body
+  console.log(data.email);
+  UserModel.find({email: data.email}, {'email': 1, 'firstName': 1, 'lastName': 1})
+  .then(result => {
+    userData = result[0]
+    console.log(result[0])
   })
-  
-  .catch(err=>res.json(err))
+  .catch((err) => {
+    console.log(err);
+  });  
+})
+
+app.get('/userData',(req,res)=>{
+  res.send(userData)
 });
+
+
 
 app.post('/crowdData',(req,res)=>{
   data = req.body
@@ -99,10 +119,6 @@ app.post('/updateCrowdData', async(req,res)=>{
       {new: true}
     )
     console.log(result);
-  } else {
-    // console.log('removed');
-    // const result = await CrowdData.deleteOne({ movieName: data.id })
-    // console.log(result);
   }
   console.log('removed');
   const result = await CrowdData.deleteOne({ movieName: data.id })
@@ -115,6 +131,8 @@ app.get('/crowdData',(req,res)=>{
     res.send(result)
   })
 })
+
+
 
 
 module.exports = app;

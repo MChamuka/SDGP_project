@@ -6,6 +6,8 @@ import Login from './Signup_sign in/Login/index.jsx';
 import Journal from './pages/UserProfilePage/UserProfileComponents/Feaatures/JournalFeature/Journal.js';
 import Locations from './pages/Locations.js';
 import MovieForm from './pages/UserProfilePage/UserProfileComponents/Feaatures/DataGatheringFormFeature/MovieForm.js';
+
+
 import Profile from './pages/UserProfilePage/Profile.js';
 import JetSource from './pages/jetSource.js'
 import "./index.css";
@@ -36,6 +38,9 @@ import {
         path: "signUp",
         element: <SignUp /> ,
       },
+      { path: "login",
+        element: <Login/>
+    },
       {
         path: "form",
         element: <MovieForm /> ,
