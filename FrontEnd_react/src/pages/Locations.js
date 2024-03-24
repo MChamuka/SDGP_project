@@ -5,6 +5,7 @@ import {
     Marker,
 } from "@react-google-maps/api";
 import EditSvg from "./edit.svg";
+import UploadBtn from "./upload-button.png";
 import Nav from "./navbar.js";
 import { useLoadScript } from "@react-google-maps/api";
     
@@ -32,7 +33,7 @@ function Locations() {
             else {
                 setLocations(data[0].locations);
                 setTitle(data[0].movieTitle);
-                setAddButton('+ Add new locations')
+                setAddButton('+ Submit locations to JeoSource')
                 setMarkers(data[0].locations)
             }
         }, 200)
@@ -84,6 +85,13 @@ function Locations() {
                     id = "editButton"
                     />
                 </a>
+                <a href="/form">
+                    <img
+                    src={UploadBtn}
+                    alt="Request button"
+                    id = "uploadButton"
+                    />
+                </a>
             </div>
             <div className='content2'>
                 <div className='locations'>
@@ -125,7 +133,7 @@ function Locations() {
                             </div>
                             )
                         }
-                        else if (item == 'No locations found for this movie: click here to submit a location.'){
+                        else if (item == 'No locations found for this movie, click the link below to submit a location.'){
                             return(
                                 <div>
                                     <a key={index} href="#" className="locationList"><h3>{item}</h3></a>
@@ -147,7 +155,7 @@ function Locations() {
                         }
                         
                     })}
-                    <div className="content3"><a href="submit" className="button-add">{addButton}</a></div>
+                    <div className="content3"><a href="form" className="button-add">{addButton}</a></div>
                 </div>
             </div>
                     
