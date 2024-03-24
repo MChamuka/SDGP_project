@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUp from './pages/signUp.js';
+import SignUp from './Signup_sign in/Signup/index.jsx';
+import Login from './Signup_sign in/Login/index.jsx';
 import Locations from './pages/Locations.js';
 import MovieForm from './pages/UserProfilePage/UserProfileComponents/Feaatures/DataGatheringFormFeature/MovieForm.js';
 import Form  from './pages/Form.js';
@@ -44,6 +45,10 @@ import {
       {
         path: "locations",
         element: <Locations /> ,
+      },
+      {
+      path:"Login",
+      element:<Login/>
       },
   ]);
 
