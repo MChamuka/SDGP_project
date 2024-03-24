@@ -1,14 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
 * {
   margin: 0;
 }
 
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+}
+
 .journalMainContainer {
-  background-image: url(../../../../../../public/Images/background\ image.jpg);
+  font-family: var(--font-roboto);
+  background-color: #1c1d1f;
   padding-top: 30px;
   padding-bottom: 30px;
+  min-height: 100vh; /* Set a minimum height to cover the viewport */
   display: flex;
   flex-direction: column;
-  flex: 5;
   align-items: center;
   justify-content: center;
   background-size: cover;
@@ -17,13 +26,12 @@
 }
 
 .journal-container {
-  font-family: sans-serif;
+  position: relative;
   width: 65%;
-  height: 80vh;
   margin: 30px 0;
   margin-left: 10px;
   padding: 20px;
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-color: black;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -32,6 +40,10 @@
 .journal-title {
   text-align: center;
   font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.post {
   margin-bottom: 20px;
 }
 
@@ -146,4 +158,22 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.add-post-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-post-button:hover {
+  background-color: #0d3663;
 }
