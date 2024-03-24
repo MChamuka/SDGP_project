@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+.title{
+  margin-top: 0px;
+  padding-top: 7rem;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+ol {
+  padding-left: 150px;
+}
+
+.alternating-colors{
+  margin-bottom: 1rem;
+}
+
+.log {
+  width: 500px;
+  border-right: 0px;
+  color: #e1e1e1;
+  padding-left: 16px;
+  margin-top: 24px;
+  position: relative;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+li:before {
+  content: "";
+  display: block;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  position: absolute;
+  top: -12px;
+  left: -46px;
+}
+
+.locationName {
+  color: #bfbfbf;
+  margin-top: 20px;
+  margin-left: 1.5rem;
+}
+
+.sceneDescription {
+  color: #bfbfbf;
+  margin-top: 20px;
+  margin-left: 1.5rem;
+}
+
+.logs{
+  display: flex;
+  align-items: center;
+  column-gap: 0px;
+}
+
+.vote-buttons{
+  margin: 2rem 1rem 0rem 1rem;
+}
+
+button{
+  background: #787e853d;
+}
+
+button:hover{
+  background: #787e8519;
+}
+
+.add{
+  color: rgb(134, 212, 164);
+  margin-bottom: 1rem;
+}
+
+.remove{
+  color: rgb(225, 121, 121);
+}
+
+ol.alternating-colors li:nth-child(odd):before {
+  border-color: #647c63;
+}
+ol.alternating-colors li:nth-child(even):before {
+  border-color: #5c7999;
+}

@@ -1,11 +1,11 @@
 import "./locations.css"
-import "./navbar.css"
 import { useEffect, useState, useMemo } from "react";
 import {
     GoogleMap,
     Marker,
 } from "@react-google-maps/api";
 import EditSvg from "./edit.svg";
+import UploadBtn from "./upload-button.png";
 import Nav from "./navbar.js";
 import { useLoadScript } from "@react-google-maps/api";
     
@@ -27,13 +27,13 @@ function Locations() {
         const data = await response.json();
         setTimeout(() => {
             if(data.length === 0) {
-                setLocations(['Loading...']);
+                setLocations(['']);
                 fetchLocations();
             }
             else {
                 setLocations(data[0].locations);
                 setTitle(data[0].movieTitle);
-                setAddButton('+ Add new locations')
+                setAddButton('+ Submit locations to JeoSource')
                 setMarkers(data[0].locations)
             }
         }, 200)
@@ -50,7 +50,6 @@ function Locations() {
                 setGeoCodes(geoCodes => [...geoCodes, "No marker found for this location"])
             } else {
                 let latAndLng = geoCodeData.results[0].geometry.location
-                console.log(geoCodeData.results[0].geometry.location);
                 setGeoCodes(geoCodes => [...geoCodes, latAndLng])
             }
         })
@@ -86,11 +85,19 @@ function Locations() {
                     id = "editButton"
                     />
                 </a>
+                <a href="/form">
+                    <img
+                    src={UploadBtn}
+                    alt="Request button"
+                    id = "uploadButton"
+                    />
+                </a>
             </div>
             <div className='content2'>
                 <div className='locations'>
                     {locations.map((item, index) => {
-                        if(item != ""){
+                        if(item != "" && geoCodes[index] != "No marker found for this location"){
+                            console.log(geoCodes[index]);
                             return (
                             <div>
                                 <a key={index} href="#" className="locationList"><h3>{item}</h3></a>
@@ -104,10 +111,11 @@ function Locations() {
                                         <Marker position={geoCodes[index]}/>
                                         </GoogleMap>
                                     </div>                                   
-                                    <div className="detail addScene1">
+
+                                    <div className="detail addScene1 scenes">
                                         <p>Add movie scene image here</p>
                                     </div>
-                                    <div className="detail addScene2">
+                                    <div className="detail addScene2 scenes">
                                         <p>Add real scene image here</p>
                                     </div>
                                     {visibility && (
@@ -118,17 +126,36 @@ function Locations() {
                                     {visibility && (
                                         <div className="detail removeLocation">
                                             <p>Remove Location</p>
-                                        </div>
-                                        
+                                        </div>                                       
                                     )}
                                     
                                 </div>
                             </div>
                             )
                         }
+                        else if (item == 'No locations found for this movie, click the link below to submit a location.'){
+                            return(
+                                <div>
+                                    <a key={index} href="#" className="locationList"><h3>{item}</h3></a>
+                                </div>
+                            )    
+                        }
+                        else if (item != "" && geoCodes[0] == "No marker found for this location"){
+                            return(
+                                <div>
+                                    <a key={index} href="#" className="locationList"><h3>{item}</h3></a>
+                                    <div className="details-grid">
+                                        <div className="detail span map">
+                                            <p>{geoCodes[0]}</p>
+                                        </div>        
+                                    </div>
+                                </div>
+                            )
+                            
+                        }
                         
                     })}
-                    <div className="content3"><a href="submit" className="button-add">{addButton}</a></div>
+                    <div className="content3"><a href="form" className="button-add">{addButton}</a></div>
                 </div>
             </div>
                     

@@ -1,16 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUp from './pages/signUp.js';
 import Locations from './pages/Locations.js';
-import Form  from './pages/Form.js';
+import MovieForm from './pages/UserProfilePage/UserProfileComponents/Feaatures/DataGatheringFormFeature/MovieForm.js';
+import SignUp from './Signup_sign in/Signup/index.jsx';
 import Profile from './pages/UserProfilePage/Profile.js';
+import JetSource from './pages/jetSource.js'
+import "./index.css";
 
 
 import App from './App';
 import {
+    BrowserRouter,
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
 
   const router = createBrowserRouter([
     {
@@ -22,8 +34,8 @@ import {
         element: <SignUp /> ,
       },
       {
-        path: "Form",
-        element: <Form /> ,
+        path: "form",
+        element: <MovieForm /> ,
       },
       {
         path: "/profile",
@@ -32,6 +44,10 @@ import {
       {
         path: "locations",
         element: <Locations /> ,
+      },
+      {
+        path: "jetsource",
+        element: <JetSource /> ,
       },
   ]);
 

@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import Navbar from "./pages/navbar";
 import SearchIcon from "./search.svg";
+import Main from "./Signup_sign in/Main";
+import Signup from "./Signup_sign in/Signup";
+import Login from "./Signup_sign in/Login"
 
 import "./App.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
+
+// import Spline from "@splinetool/react-spline";
 
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
 
@@ -21,7 +26,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("adventure");
+    searchMovies("Adventure");
   }, []);
 
   // On movie selection
@@ -57,9 +62,28 @@ const App = () => {
   
 
   return (  
+    /*<Routes>
+			{user && <Route path="/" exact element={<Main />} />}
+			<Route path="/signup" exact element={<Signup />} />
+			<Route path="/login" exact element={<Login />} />
+			<Route path="/" element={<Navigate replace to="/login" />} />
+		</Routes>*/
+
     <div className="app">
       <Navbar/>
       <h1>JetViaLense</h1>
+
+      {/* <ul class="topnav" id="myTopnav">
+        <li><Link to ="/App">Search</Link></li>
+        <li><Link to ="/profile">Profile</Link></li>
+        <li><Link to ="/locations">Locations</Link></li>
+        <li><Link to ="/form">Submit</Link></li>
+        <li><Link to ="/signUp">Login</Link></li>
+      </ul> */}
+      {/* <div className="spline-container">
+        <Spline scene="https://prod.spline.design/dMGhdK3UFxg4Z7n7/scene.splinecode"/>
+      </div> */}
+
       <div className="search">
         <input
           value={searchTerm}
@@ -85,6 +109,8 @@ const App = () => {
         </div>
       )}
     </div>
+
+    
     
   );
 };

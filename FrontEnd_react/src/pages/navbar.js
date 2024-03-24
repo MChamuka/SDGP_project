@@ -13,11 +13,12 @@ function Navbar(){
         <header>
         <h3>JetViaLens</h3>
         <nav ref={navRef}>
-          <Link to="/App">Search</Link>
+          <Link to="/">Search</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/locations">Locations</Link>
-          <Link to="/form">Submit</Link>
+          {/* <Link to="/form">Submit</Link> */}
           <Link to="/signUp">Login</Link>
+          <Link to="/jetsource">JetSource</Link>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button>
