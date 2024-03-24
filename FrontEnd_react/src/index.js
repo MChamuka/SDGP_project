@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Locations from './pages/Locations.js';
 import MovieForm from './pages/UserProfilePage/UserProfileComponents/Feaatures/DataGatheringFormFeature/MovieForm.js';
 import SignUp from './Signup_sign in/Signup/index.jsx';
+import Login from './Signup_sign in/Login/index.jsx'
 import Profile from './pages/UserProfilePage/Profile.js';
 import JetSource from './pages/jetSource.js'
 import "./index.css";
@@ -33,6 +34,9 @@ import {
         path: "signUp",
         element: <SignUp /> ,
       },
+      { path: "login",
+        element: <Login/>
+    },
       {
         path: "form",
         element: <MovieForm /> ,

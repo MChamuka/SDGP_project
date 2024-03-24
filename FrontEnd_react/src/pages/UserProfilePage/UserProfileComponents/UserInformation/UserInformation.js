@@ -6,22 +6,36 @@ import axios from 'axios';
 
 
 export default function UserInformation() {
+
+  const [users,setUsers] = useState([])
+  const [firstName,setFirstName] = useState('')
+  const [lastName,setLastName] = useState('')
+  const [email,setEmail] = useState('')
+
   const [profileImage, setProfileImage] = useState("/Images/1.jpg");
   const fileInputRef = useRef(null);
 
-  const [users,setUsers] = useState([])
+  const getInfo = async () => {
+    const userInfo = await fetch('http://localhost:4000/userData');
+    const userInfoData = await userInfo.json()
+    console.log(userInfoData.firstName);
+    setFirstName(userInfoData.firstName)
+    setLastName(userInfoData.lastName)
+    setEmail(userInfoData.email)
+  }
+
 
   const openStreamlitApp = () => {
     window.open('http://localhost:8501'); //streamlt URL
   };
 
   useEffect(()=>{
-    axios.get('http://localhost:4000/getUsers')
-    .then(users=> {setUsers(users.data[0])
-      
-      console.log(users.data[0].firstName)
-    })
-    .catch(err=>console.log(err))
+    getInfo()
+    // axios.get('http://localhost:4000/getUser')
+    // .then(users=> {setUsers(users.data[0]) 
+    //   console.log(users.data[0].firstName)
+    // })
+    // .catch(err=>console.log(err))
   },[])
 
   const handleImageUpload = (event) => {
@@ -50,8 +64,8 @@ export default function UserInformation() {
               style={{ display: "none" }}
             />
           </div>
-          <div className="userinfo">{users.firstName}</div>
-          <div className="userinfo">{users.email}</div>
+          <div className="userinfo">{firstName} {lastName}</div>
+          <div className="userinfo">{email}</div>
         </div>
         <div className="featureContainer">
           <div className="userProfilefeatures">

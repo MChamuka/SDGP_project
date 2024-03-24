@@ -38,7 +38,9 @@ export default function JetSource() {
     // index = event.target.getAttribute('index')
     console.log(id);
     sendId(buttonFunction)
-    window.location.reload()
+    setTimeout(() => {
+      window.location.reload()
+    },1000)
   }
 
   const remove = (event) => {
@@ -53,10 +55,6 @@ export default function JetSource() {
       <Nav/>
       <h1 className="title">JetSource Log</h1>
       {logs.map((item, index) => {
-        // let prevMovieName = item.movieName
-        // if(prevMovieName != item){
-        //   index -= index
-        // }
           return(
           <div key={index}>
             <ol className="alternating-colors">

@@ -14,7 +14,7 @@ function Navbar(){
         <h3>JetViaLens</h3>
         <nav ref={navRef}>
           <Link to="/">Search</Link>
-          <Link to="/profile">Profile</Link>
+          {/* <Link to="/profile">Profile</Link> */}
           <Link to="/locations">Locations</Link>
           {/* <Link to="/form">Submit</Link> */}
           <Link to="/signUp">Login</Link>

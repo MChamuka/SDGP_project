@@ -71,7 +71,7 @@ const App = () => {
 
     <div className="app">
       <Navbar/>
-      <h1>JetViaLense</h1>
+      <h1>JetViaLens</h1>
 
       {/* <ul class="topnav" id="myTopnav">
         <li><Link to ="/App">Search</Link></li>

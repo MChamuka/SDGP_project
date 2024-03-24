@@ -41,6 +41,7 @@ const MovieForm = () => {
     axios.post("http://localhost:4000/crowdData", formData)
       .then(response => {
         console.log(response)
+        window.location.href = "locations"
       })
       .catch(err => {
         console.log(err);
