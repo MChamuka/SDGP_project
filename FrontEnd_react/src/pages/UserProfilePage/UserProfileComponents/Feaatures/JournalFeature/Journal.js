@@ -2,94 +2,92 @@ import React, { useState } from "react";
 import "./journal.css";
 
 function Journal() {
-  const [description, setDescription] = useState("");
-  const [images, setImages] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [posts, setPosts] = useState([]);
 
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
+  const addPost = () => {
+    const newPost = {
+      description: "",
+      images: [],
+    };
+    setPosts([...posts, newPost]);
   };
 
-  const handleImageUpload = (event) => {
-    const newImages = [...images, URL.createObjectURL(event.target.files[0])];
-    setImages(newImages);
+  const handleDescriptionChange = (event, index) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].description = event.target.value;
+    setPosts(updatedPosts);
   };
 
-  const handleDeleteImage = (index) => {
-    const newImages = images.filter((_, i) => i !== index);
-    setImages(newImages);
+  const handleImageUpload = (event, index) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].images.push(URL.createObjectURL(event.target.files[0]));
+    setPosts(updatedPosts);
   };
 
-  const handleClearAll = () => {
-    setDescription("");
-    setImages([]);
+  const handleDeletePost = (index) => {
+    const updatedPosts = [...posts];
+    updatedPosts.splice(index, 1);
+    setPosts(updatedPosts);
   };
 
-  const handleImageClick = (index) => {
-    setSelectedImage(images[index]);
-  };
-
-  const handleClosePreview = () => {
-    setSelectedImage(null);
+  const handleDeleteImage = (postIndex, imageIndex) => {
+    const updatedPosts = [...posts];
+    updatedPosts[postIndex].images.splice(imageIndex, 1);
+    setPosts(updatedPosts);
   };
 
   return (
     <div className="journalMainContainer">
       <div className="journal-container">
         <h1 className="journal-title">Journal</h1>
-        <textarea
-          className="description-textarea"
-          value={description}
-          onChange={handleDescriptionChange}
-          placeholder="Write your description here..."
-          rows={3}
-        />
-        <div className="image-container">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="image-item"
-              onClick={() => handleImageClick(index)}
-            >
-              <img src={image} alt={`Image ${index}`} />
-              <button
-                className="delete-button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  handleDeleteImage(index);
-                }}
+        {posts.map((post, index) => (
+          <div key={index} className="post">
+            <textarea
+              className="description-textarea"
+              value={post.description}
+              onChange={(event) => handleDescriptionChange(event, index)}
+              placeholder="Write your description here..."
+              rows={3}
+            />
+            <div className="image-container">
+              {post.images.map((image, imageIndex) => (
+                <div key={imageIndex} className="image-item">
+                  <img src={image} alt={`Image ${imageIndex}`} />
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDeleteImage(index, imageIndex)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="button-container">
+              <label
+                htmlFor={`image-upload-${index}`}
+                className="image-upload-button"
               >
-                Delete
+                Add Images
+              </label>
+              <input
+                id={`image-upload-${index}`}
+                className="image-input"
+                type="file"
+                accept="image/*"
+                onChange={(event) => handleImageUpload(event, index)}
+              />
+              <button
+                className="clear-all-button"
+                onClick={() => handleDeletePost(index)}
+              >
+                Delete Post
               </button>
             </div>
-          ))}
-        </div>
-        <div className="button-container">
-          <label htmlFor="image-upload" className="image-upload-button">
-            Add Images
-          </label>
-          <input
-            id="image-upload"
-            className="image-input"
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-          <button className="clear-all-button" onClick={handleClearAll}>
-            Clear All
-          </button>
-        </div>
-        {selectedImage && (
-          <div className="image-preview">
-            <img src={selectedImage} alt="Preview" />
-            <button
-              className="close-preview-button"
-              onClick={handleClosePreview}
-            >
-              Close
-            </button>
           </div>
-        )}
+        ))}
+        <button className="add-post-button" onClick={addPost}>
+          Add New Post
+        </button>
       </div>
     </div>
   );
