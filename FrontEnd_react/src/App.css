@@ -112,6 +112,10 @@ h1 {
   height: 35px;
   cursor: pointer;
 }
+.topnav:hover {
+  color: #ddd;
+  color: black;
+}
 
 /*.search button {
   padding: 20px 40px;

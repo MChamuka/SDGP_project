@@ -13,8 +13,8 @@
   
 }
 
-.movie-form-container {
-  width: 400px;
+.movie-form-container { 
+  width: 600px;
   background: transparent;
   margin: 0 auto;
   border: 2px solid rgba(255,255,255,.2);
@@ -27,6 +27,18 @@
 
 .movie-form-container h1{
   font-size: 36px;
+  text-align: center;
+}
+
+h4{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title2{
+  width: 100%;
+  margin-top: 30px;
+  margin-left: 0px;
   text-align: center;
 }
 
@@ -59,4 +71,8 @@ button {
 
 button:hover {
   background-color: #230255;
+}
+
+#movieName, #movieScene, #movieLocation{
+  color: #ccc;
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import SignUp from './Signup_sign in/Signup/index.jsx';
 import Login from './Signup_sign in/Login/index.jsx';
+import Journal from './pages/UserProfilePage/UserProfileComponents/Feaatures/JournalFeature/Journal.js';
 import Locations from './pages/Locations.js';
 import MovieForm from './pages/UserProfilePage/UserProfileComponents/Feaatures/DataGatheringFormFeature/MovieForm.js';
-import Form  from './pages/Form.js';
 import Profile from './pages/UserProfilePage/Profile.js';
+import JetSource from './pages/jetSource.js'
 import "./index.css";
 
 
@@ -35,7 +37,7 @@ import {
         element: <SignUp /> ,
       },
       {
-        path: "Form",
+        path: "form",
         element: <MovieForm /> ,
       },
       {
@@ -47,8 +49,18 @@ import {
         element: <Locations /> ,
       },
       {
+
       path:"Login",
       element:<Login/>
+      },
+      {
+        path: "jetsource",
+        element: <JetSource /> ,
+
+      },
+      {
+        path: "/Journal",
+        element: <Journal />,
       },
   ]);
 
