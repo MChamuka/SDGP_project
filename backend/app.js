@@ -32,6 +32,10 @@ mongoose.connect(dbURI)
     .then(() => app.listen(4000))
     .then(() => console.log('connected'))
     .catch((err) => console.log(err));
+
+app.get('/', (req,res) =>{
+  res.send('JETVIALENSE')
+})
     
 // get movie ids to the backend
 app.post('/locations', (req, res) => {
@@ -50,6 +54,7 @@ async function storeLocations() {
 
   // executing the python script
   const pythonProcess = spawn('python', ['movie-locations.py', id, title]);
+  // const pythonProcess = spawn('docker', ['exec', 'sdgp_project', 'python', 'movie-locations.py', id, title])
 
   pythonProcess.stderr.on('data', (data) => {
     console.error(`Python script error: ${data.toString()}`);

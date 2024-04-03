@@ -37,7 +37,7 @@ const MovieForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // You can handle form submission here
+    console.log(formData); //  can handle form submission here
     axios.post("http://localhost:4000/crowdData", formData)
       .then(response => {
         console.log(response)

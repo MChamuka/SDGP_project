@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  # locations:
+  #   build: ./python
+  #   container_name: python_c
+  backend:
+    build: ./backend
+    container_name: backend_c
+    ports:
+      - '4000:4000'
+    # volumes:
+    #   - ./backend:./app
+  frontend:
+    build: ./FrontEnd_react
+    container_name: frontend_c
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
